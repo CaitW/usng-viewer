@@ -1,0 +1,47 @@
+// Fonts
+
+@import 'fonts';
+@import 'lib/font-awesome/font-awesome';
+$font_header: 'Fjalla One', sans-serif;
+$font_body: 'Roboto', sans-serif;
+$font_icons: 'Font Awesome';
+
+// Libraries
+@import 'lib/bootstrap';
+@import 'lib/ol';
+
+// Partials
+@import 'colors';
+@import 'map';
+
+// CSS
+html {
+  height: 100%;
+
+  body {
+    height: 100%;
+    overflow: hidden;
+    font-family: $font_body;
+    background-color: $color3;
+  }
+}
+
+#react-root {
+  height: 100%;
+}
+
+.usngviewer-grid {
+  height: 100%;
+}
+
+.usngviewer-content-container {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+a:focus {
+  outline: none;
+}
