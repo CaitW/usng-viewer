@@ -4,10 +4,11 @@
 import React from 'react';
 import { render } from 'react-dom';
 // layout components
-import { Grid, Row } from 'react-bootstrap';
+import { Grid, Row, Col } from 'react-bootstrap';
 import { Provider } from 'react-redux';
 // containers
 import MapContainer from './containers/MapContainer.jsx';
+import Sidebar from './containers/Sidebar.jsx';
 
 // Redux
 import store from './store';
@@ -31,7 +32,12 @@ class App extends React.Component {
             <Provider store={store}>
                 <Grid fluid className="usngviewer-grid">
                     <Row className="usngviewer-content-container">
-                        <MapContainer />
+                        <Col xs={12} sm={12} md={8} lg={9}>
+                            <MapContainer />
+                        </Col>
+                        <Col xs={12} sm={12} md={4} lg={3}>
+                            <Sidebar />
+                        </Col>
                     </Row>
                 </Grid>
             </Provider>
