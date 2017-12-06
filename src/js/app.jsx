@@ -31,6 +31,9 @@ class App extends React.Component {
         return (
             <Provider store={store}>
                 <Grid fluid className="usngviewer-grid">
+                    <Row className="usngviewer-title-container">
+                        USNG Mapbooks
+                    </Row>
                     <Row className="usngviewer-content-container">
                         <Col xs={12} sm={12} md={8} lg={9}>
                             <MapContainer />

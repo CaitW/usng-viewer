@@ -1,6 +1,11 @@
 .usngviewer-map {
     width: 100%;
     height: 100%;
-    padding: 20px 0;
     background-color: $color2;
+}
+
+@media (max-width: 767px) {
+    .usngviewer-map {
+        height: 60vh;
+    }
 }

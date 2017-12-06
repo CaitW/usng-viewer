@@ -1,7 +1,6 @@
 .usngviewer-sidebar {
     width: 100%;
     height: 100%;
-    padding: 20px 0;
 }
 
 table {
@@ -9,7 +8,7 @@ table {
     tr {
         background-color: $color1;
         &:nth-child(odd) {
-            background-color: rgba(190, 200, 201, 0.7);
+            background-color: rgba(190, 200, 201, 0.9);
         }
     }
     td {
@@ -20,4 +19,17 @@ table {
 .usngviewer-table-cell-value {
     word-break: break-word;
     text-align: right;
+}
+
+@media (min-width: 768px) {
+    .usngviewer-sidebar {
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 767px) {
+    .usngviewer-sidebar {
+        height: auto;
+        margin-top: 10px;
+    }
 }
