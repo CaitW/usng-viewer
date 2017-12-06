@@ -13,13 +13,12 @@ export function updateWindowDimensions(height, width) {
     };
 }
 
-
 const initialState = {
     height: false,
     width: false
 };
 
-export default function mobile(state = initialState, action) {
+export default function window(state = initialState, action) {
     let newState = {
         ...state
     };

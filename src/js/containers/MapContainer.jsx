@@ -1,7 +1,5 @@
 /**
- * LeafletMap.jsx
- * Container with Leaflet map. References the primary map object (ObliquePhotoMap),
- * and facilitates communication between the map and interface.
+ * Map Container
  */
 
 import React from 'react';
