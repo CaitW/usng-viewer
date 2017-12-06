@@ -1,0 +1,23 @@
+.usngviewer-sidebar {
+    width: 100%;
+    height: 100%;
+    padding: 20px 0;
+}
+
+table {
+    color: $color2;
+    tr {
+        background-color: $color1;
+        &:nth-child(odd) {
+            background-color: rgba(190, 200, 201, 0.7);
+        }
+    }
+    td {
+        border: none !important;
+    }
+}
+
+.usngviewer-table-cell-value {
+    word-break: break-word;
+    text-align: right;
+}

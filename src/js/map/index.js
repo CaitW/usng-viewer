@@ -4,10 +4,10 @@ import Map from 'ol/map';
 import View from 'ol/view';
 
 // basemaps
-import Light from '../layers/basemaps/Light';
+import LAYERS from './layers';
 
-// Layers
-import Mapbooks from '../layers/Mapbooks.js';
+// INTERACTIONS
+import INTERACTIONS from './interactions';
 
 // extent
 import Extent from 'ol/extent';
@@ -34,9 +34,10 @@ export default class OlMap {
         this.map = new Map({
             target: map,
             layers: [
-                Light,
-                Mapbooks
+                LAYERS.basemaps.Light,
+                LAYERS.layers.Mapbooks
             ],
+            interactions: INTERACTIONS,
             view: self.view
         });
         // debugging

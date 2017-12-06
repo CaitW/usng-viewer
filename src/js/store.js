@@ -1,14 +1,16 @@
 import { createStore, combineReducers } from 'redux';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import window from './ducks/window';
-
+import feature from './ducks/feature';
 
 const theReducer = combineReducers({
-    window
+    window,
+    feature
 });
+
 const store = createStore(
-    theReducer,
-    // eslint-disable-next-line no-underscore-dangle
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    theReducer, composeWithDevTools()
 );
+
 export default store;

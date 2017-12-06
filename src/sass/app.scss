@@ -13,6 +13,7 @@ $font_icons: 'Font Awesome';
 // Partials
 @import 'colors';
 @import 'map';
+@import 'sidebar';
 
 // CSS
 html {
@@ -22,7 +23,8 @@ html {
     height: 100%;
     overflow: hidden;
     font-family: $font_body;
-    background-color: $color3;
+    background-color: $color2;
+    color: $color1;
   }
 }
 
