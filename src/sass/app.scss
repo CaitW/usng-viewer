@@ -21,9 +21,10 @@ html {
 
   body {
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: scroll;
     font-family: $font_body;
-    background-color: $color2;
+    background-color: $color3;
     color: $color1;
   }
 }
@@ -34,10 +35,18 @@ html {
 
 .usngviewer-grid {
   height: 100%;
+  padding-bottom: 20px;
+}
+
+.usngviewer-title-container {
+  font-family: $font_header;
+  height: 75px;
+  padding: 20px;
+  font-size: 36px;
 }
 
 .usngviewer-content-container {
-  height: 100%;
+  height: calc(100% - 75px);
 }
 
 *:focus {
