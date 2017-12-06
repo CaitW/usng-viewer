@@ -13,11 +13,38 @@ import CircleGeometry from 'ol/geom/circle';
 
 import { pointSizeByResolution } from '../../../util';
 
-const circleForegroundFill = 'rgba(15, 139, 141, 1)';
 const circleBackgroundFill = 'rgba(35, 31, 32, 1)';
 const polygonStroke = 'rgba(35, 31, 32, 1)';
 const polygonFill = 'rgba(123, 75, 148, 1)';
 
+/**
+    $color1: rgba(15, 139, 141, 1);
+    $color2: rgba(19, 154, 67, 1);
+    $color3: rgba(192, 50, 33, 1);
+    $color4: rgba(233, 215, 88, 1);
+    $color5: rgba(211, 97, 53, 1);
+*/
+
+function getPointColor(feature) {
+    let featureType = feature.getProperties().TYPE;
+    switch (featureType) {
+        case 'County':
+            return 'rgba(15, 139, 141, 1)';
+            break;
+        case 'Fire District':
+            return 'rgba(19, 154, 67, 1)';
+            break;
+        case 'City':
+            return 'rgba(192, 50, 33, 1)';
+            break;
+        case 'Parish':
+            return 'rgba(233, 215, 88, 1)';
+            break;
+        default:
+            return 'rgba(211, 97, 53, 1)';
+            break;
+    }
+}
 const style = function(feature, resolution) {
     switch (feature.getGeometry().getType()) {
         case 'Point':
@@ -38,7 +65,7 @@ const style = function(feature, resolution) {
                         return new CircleGeometry(coordinates, radius)
                     },
                     fill: new Fill({
-                        color: circleForegroundFill
+                        color: getPointColor(feature)
                     })
                 })
             ]
@@ -76,7 +103,7 @@ const hoverStyle = function(feature, resolution) {
                         return new CircleGeometry(coordinates, radius)
                     },
                     fill: new Fill({
-                        color: 'rgba(123, 75, 148, 1)'
+                        color: getPointColor(feature)
                     })
                 })
             ]
@@ -104,11 +131,11 @@ const clickStyle = function(feature, resolution) {
             return [
                 new Style({
                     geometry: function(feature) {
-                        let radius = pointSizeByResolution(6, resolution);
+                        let radius = pointSizeByResolution(8, resolution);
                         return new CircleGeometry(coordinates, radius);
                     },
                     fill: new Fill({
-                        color: '#ffffff'
+                        color: circleBackgroundFill
                     })
                 }),
                 new Style({
@@ -117,7 +144,7 @@ const clickStyle = function(feature, resolution) {
                         return new CircleGeometry(coordinates, radius)
                     },
                     fill: new Fill({
-                        color: circleForegroundFill
+                        color: getPointColor(feature)
                     })
                 })
             ]
