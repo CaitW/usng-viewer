@@ -25,7 +25,7 @@ const polygonFill = 'rgba(123, 75, 148, 1)';
     $color5: rgba(211, 97, 53, 1);
 */
 
-function getPointColor(feature) {
+function getTypeColor(feature) {
     let featureType = feature.getProperties().TYPE;
     switch (featureType) {
         case 'County':
@@ -45,6 +45,7 @@ function getPointColor(feature) {
             break;
     }
 }
+
 const style = function(feature, resolution) {
     switch (feature.getGeometry().getType()) {
         case 'Point':
@@ -65,7 +66,7 @@ const style = function(feature, resolution) {
                         return new CircleGeometry(coordinates, radius)
                     },
                     fill: new Fill({
-                        color: getPointColor(feature)
+                        color: getTypeColor(feature)
                     })
                 })
             ]
@@ -73,7 +74,7 @@ const style = function(feature, resolution) {
         case 'Polygon':
             return new Style({
                 stroke: new Stroke({
-                    color: polygonStroke,
+                    color: getTypeColor(feature),
                     width: 3
                 })
             });
@@ -103,7 +104,7 @@ const hoverStyle = function(feature, resolution) {
                         return new CircleGeometry(coordinates, radius)
                     },
                     fill: new Fill({
-                        color: getPointColor(feature)
+                        color: getTypeColor(feature)
                     })
                 })
             ]
@@ -111,11 +112,11 @@ const hoverStyle = function(feature, resolution) {
         case 'Polygon':
             return new Style({
                 stroke: new Stroke({
-                    color: polygonStroke,
+                    color: getTypeColor(feature),
                     width: 3
                 }),
                 fill: new Fill({
-                    color: polygonFill
+                    color: getTypeColor(feature)
                 })
             });
             break;
@@ -144,7 +145,7 @@ const clickStyle = function(feature, resolution) {
                         return new CircleGeometry(coordinates, radius)
                     },
                     fill: new Fill({
-                        color: getPointColor(feature)
+                        color: getTypeColor(feature)
                     })
                 })
             ]
@@ -152,11 +153,11 @@ const clickStyle = function(feature, resolution) {
         case 'Polygon':
             return new Style({
                 stroke: new Stroke({
-                    color: polygonStroke,
+                    color: getTypeColor(feature),
                     width: 3
                 }),
                 fill: new Fill({
-                    color: polygonFill
+                    color: getTypeColor(feature)
                 })
             });
             break;

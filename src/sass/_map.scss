@@ -4,6 +4,29 @@
     background-color: $color2;
 }
 
+.ol-control button {
+    display: block;
+    margin: 1px;
+    padding: 0;
+    color: $color1;
+    font-size: 1.14em;
+    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
+    height: 1.375em;
+    width: 1.375em;
+    line-height: .4em;
+    background-color: $color3;
+    border: 0;
+    &:focus {
+        outline: none;
+        background-color: $color3;
+    }
+    &:hover {
+        background-color: $color4;
+    }
+}
+
 @media (max-width: 767px) {
     .usngviewer-map {
         height: 60vh;
