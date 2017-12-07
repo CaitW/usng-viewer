@@ -1,6 +1,9 @@
 .usngviewer-sidebar {
     width: 100%;
     height: 100%;
+    a {
+        text-decoration: none;
+    }
 }
 
 table {
@@ -31,5 +34,35 @@ table {
     .usngviewer-sidebar {
         height: auto;
         margin-top: 10px;
+    }
+}
+
+.usngviewer-mapbook-title {
+    font-size: 36px;
+    line-height: 36px;
+}
+
+.usngviewer-mapbook-type {
+    font-size: 24px;
+    color: rgba(190, 200, 201, 0.7)
+}
+
+.usngviewer-mapbook-buttons {
+    margin-top: 20px;
+    button {
+        display: block;
+        width: 100%;
+        text-align: left;
+        font-size: 18px !important;
+        margin-bottom: 10px;
+        background-color: $color1 !important;
+        &:hover {
+            background-color: #fff !important;
+        }
+    }
+    i {
+        font-size: 18px;
+        margin-right: 20px;
+        color: rgba(20, 54, 66, 0.7);
     }
 }

@@ -113,7 +113,7 @@ const hoverStyle = function(feature, resolution) {
             return new Style({
                 stroke: new Stroke({
                     color: getTypeColor(feature),
-                    width: 3
+                    width: 5
                 }),
                 fill: new Fill({
                     color: getTypeColor(feature)
@@ -154,7 +154,7 @@ const clickStyle = function(feature, resolution) {
             return new Style({
                 stroke: new Stroke({
                     color: getTypeColor(feature),
-                    width: 3
+                    width: 5
                 }),
                 fill: new Fill({
                     color: getTypeColor(feature)
