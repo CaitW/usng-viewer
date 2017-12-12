@@ -110,15 +110,17 @@ const hoverStyle = function(feature, resolution) {
             ]
             break;
         case 'Polygon':
-            return new Style({
-                stroke: new Stroke({
-                    color: getTypeColor(feature),
-                    width: 5
-                }),
-                fill: new Fill({
-                    color: getTypeColor(feature)
+            return [
+                new Style({
+                    stroke: new Stroke({
+                        color: 'rgba(35, 31, 32, 1)',
+                        width: 3
+                    }),
+                    fill: new Fill({
+                        color: getTypeColor(feature)
+                    })
                 })
-            });
+            ];
             break;
         default:
             return null;
@@ -151,15 +153,17 @@ const clickStyle = function(feature, resolution) {
             ]
             break;
         case 'Polygon':
-            return new Style({
-                stroke: new Stroke({
-                    color: getTypeColor(feature),
-                    width: 5
-                }),
-                fill: new Fill({
-                    color: getTypeColor(feature)
+            return [
+                new Style({
+                    stroke: new Stroke({
+                        color: 'rgba(35, 31, 32, 1)',
+                        width: 3
+                    }),
+                    fill: new Fill({
+                        color: getTypeColor(feature)
+                    })
                 })
-            });
+            ];
             break;
         default:
             return null;
