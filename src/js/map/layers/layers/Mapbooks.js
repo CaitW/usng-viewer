@@ -11,6 +11,8 @@ import Circle from 'ol/style/circle';
 // Geometries
 import CircleGeometry from 'ol/geom/circle';
 
+import Extent from 'ol/extent';
+
 import { pointSizeByResolution } from '../../../util';
 
 const circleBackgroundFill = 'rgba(35, 31, 32, 1)';
@@ -72,12 +74,36 @@ const style = function(feature, resolution) {
             ]
             break;
         case 'Polygon':
-            return new Style({
-                stroke: new Stroke({
-                    color: getTypeColor(feature),
-                    width: 3
-                })
-            });
+            if (resolution > 4000) {
+                let coordinates = Extent.getCenter(feature.getGeometry().getExtent());
+                return [
+                    new Style({
+                        geometry: function(feature) {
+                            let radius = pointSizeByResolution(5, resolution);
+                            return new CircleGeometry(coordinates, radius);
+                        },
+                        fill: new Fill({
+                            color: circleBackgroundFill
+                        })
+                    }),
+                    new Style({
+                        geometry: function(feature) {
+                            let radius = pointSizeByResolution(3, resolution);
+                            return new CircleGeometry(coordinates, radius)
+                        },
+                        fill: new Fill({
+                            color: getTypeColor(feature)
+                        })
+                    })
+                ]
+            } else {
+                return new Style({
+                    stroke: new Stroke({
+                        color: getTypeColor(feature),
+                        width: 3
+                    })
+                });
+            }
             break;
         default:
             return null;
@@ -110,17 +136,41 @@ const hoverStyle = function(feature, resolution) {
             ]
             break;
         case 'Polygon':
-            return [
-                new Style({
-                    stroke: new Stroke({
-                        color: 'rgba(35, 31, 32, 1)',
-                        width: 3
+            if (resolution > 4000) {
+                let coordinates = Extent.getCenter(feature.getGeometry().getExtent());
+                return [
+                    new Style({
+                        geometry: function(feature) {
+                            let radius = pointSizeByResolution(6, resolution);
+                            return new CircleGeometry(coordinates, radius);
+                        },
+                        fill: new Fill({
+                            color: circleBackgroundFill
+                        })
                     }),
-                    fill: new Fill({
-                        color: getTypeColor(feature)
+                    new Style({
+                        geometry: function(feature) {
+                            let radius = pointSizeByResolution(4, resolution);
+                            return new CircleGeometry(coordinates, radius)
+                        },
+                        fill: new Fill({
+                            color: getTypeColor(feature)
+                        })
                     })
-                })
-            ];
+                ]
+            } else {
+                return [
+                    new Style({
+                        stroke: new Stroke({
+                            color: 'rgba(35, 31, 32, 1)',
+                            width: 3
+                        }),
+                        fill: new Fill({
+                            color: getTypeColor(feature)
+                        })
+                    })
+                ];
+            }
             break;
         default:
             return null;
@@ -153,17 +203,41 @@ const clickStyle = function(feature, resolution) {
             ]
             break;
         case 'Polygon':
-            return [
-                new Style({
-                    stroke: new Stroke({
-                        color: 'rgba(35, 31, 32, 1)',
-                        width: 3
+            if (resolution > 4000) {
+                let coordinates = Extent.getCenter(feature.getGeometry().getExtent());
+                return [
+                    new Style({
+                        geometry: function(feature) {
+                            let radius = pointSizeByResolution(8, resolution);
+                            return new CircleGeometry(coordinates, radius);
+                        },
+                        fill: new Fill({
+                            color: circleBackgroundFill
+                        })
                     }),
-                    fill: new Fill({
-                        color: getTypeColor(feature)
+                    new Style({
+                        geometry: function(feature) {
+                            let radius = pointSizeByResolution(4, resolution);
+                            return new CircleGeometry(coordinates, radius)
+                        },
+                        fill: new Fill({
+                            color: getTypeColor(feature)
+                        })
                     })
-                })
-            ];
+                ]
+            } else {
+                return [
+                    new Style({
+                        stroke: new Stroke({
+                            color: 'rgba(35, 31, 32, 1)',
+                            width: 3
+                        }),
+                        fill: new Fill({
+                            color: getTypeColor(feature)
+                        })
+                    })
+                ];
+            }
             break;
         default:
             return null;
