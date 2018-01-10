@@ -1,8 +1,21 @@
 .usngviewer-sidebar {
     width: 100%;
-    height: 100%;
     a {
         text-decoration: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .usngviewer-sidebar {
+        height: 100%;
+        overflow-y: scroll;
+    }
+}
+
+@media (max-width: 767px) {
+    .usngviewer-sidebar {
+        height: auto;
+        margin-top: 10px;
     }
 }
 
@@ -22,19 +35,6 @@ table {
 .usngviewer-table-cell-value {
     word-break: break-word;
     text-align: right;
-}
-
-@media (min-width: 768px) {
-    .usngviewer-sidebar {
-        overflow-y: scroll;
-    }
-}
-
-@media (max-width: 767px) {
-    .usngviewer-sidebar {
-        height: auto;
-        margin-top: 10px;
-    }
 }
 
 .usngviewer-mapbook-title {

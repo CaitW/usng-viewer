@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
             }
             if(typeof featureProperties.LinkBook !== "undefined") {
                 buttons.push(
-                    <a href={featureProperties.LinkBook} target='_blank' rel="noopener noreferrer">
+                    <a href={featureProperties.LinkBook} target='_blank' rel="noopener noreferrer" key="LinkBook">
                         <Button>
                             <i className="fa fa-download"> </i> Download
                         </Button>
@@ -43,7 +43,7 @@ class Sidebar extends React.Component {
             }
             if(typeof featureProperties.SrcLink !== "undefined") {
                 buttons.push(
-                    <a href={featureProperties.SrcLink} target='_blank' rel="noopener noreferrer">
+                    <a href={featureProperties.SrcLink} target='_blank' rel="noopener noreferrer" key="SrcLink">
                         <Button>
                             <i className="fa fa-home"> </i> Source
                         </Button>

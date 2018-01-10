@@ -1,7 +1,18 @@
 .usngviewer-map {
     width: 100%;
-    height: 100%;
     background-color: $color2;
+}
+
+@media (min-width: 768px) {
+    .usngviewer-map {
+        height: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .usngviewer-map {
+        height: 60vh;
+    }
 }
 
 .ol-control button {
@@ -24,11 +35,5 @@
     }
     &:hover {
         background-color: $color4;
-    }
-}
-
-@media (max-width: 767px) {
-    .usngviewer-map {
-        height: 60vh;
     }
 }

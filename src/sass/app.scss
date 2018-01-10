@@ -47,6 +47,18 @@ html {
 
 .usngviewer-content-container {
   height: calc(100% - 75px);
+  // bootstrap 4 rows are broken in safari
+  // https://github.com/twbs/bootstrap/issues/24219
+  &:before {
+    content: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .usngviewer-col-map,
+  .usngviewer-col-sidebar {
+    height: 100%;
+  }
 }
 
 *:focus {
