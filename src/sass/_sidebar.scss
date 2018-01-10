@@ -8,7 +8,8 @@
 @media (min-width: 768px) {
     .usngviewer-sidebar {
         height: 100%;
-        overflow-y: scroll;
+        overflow-y: auto;
+        overflow-x: hidden;
     }
 }
 
